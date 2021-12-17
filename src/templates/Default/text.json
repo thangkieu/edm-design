@@ -1,0 +1,14 @@
+{
+  "textPlaceholder": "Enter your text here...",
+  "backgroundColor": "",
+  "textStyle": {
+    "align": "center",
+    "color": "#333333",
+    "fontSize": "14px",
+    "weight": "normal",
+    "padding": "16px",
+    "backgroundImage": ""
+  },
+  "textMaxLength": 150,
+  "defaultImages": []
+}

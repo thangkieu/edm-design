@@ -1,0 +1,177 @@
+{{#equal imgConfig.layout "left right"}}
+  <table style="table-layout: fixed;">
+    <tr>
+      <td width="50%" style="
+      {{#if textStyle.backgroundImage}}
+        background-image: url('{{textStyle.backgroundImage}}');
+        background-size: cover;
+        background-repeat: no-repeat;
+      {{/if}}
+      ">
+        {{> paragraph text=text}}
+      </td>
+
+      <td width="50%">
+        {{#if imgConfig.src}}
+          <table style="height: 100%;">
+            {{#equal imgConfig.displaying "fill"}}
+              <tr style="height: 100%;">
+                <td style="
+                  {{#if imgConfig.borderColor}}
+                    border: 1px solid {{ imgConfig.borderColor }};
+                    padding: 8px;
+                  {{/if}}
+                ">
+                  <table style="height: 100%;">
+                    <tr>
+                      <td style="background-image: url('{{imgConfig.src}}')">
+                        {{#if imgConfig.link}}
+                          <a href=" {{imgConfig.link}}" style="height: 100%; display: block;">&nbsp;</a>
+                        {{/if}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{#if imgConfig.caption}}
+                    <div style="text-align: {{imgConfig.captionAlign}}; margin-top: 2px;">
+                      <small><em>{{imgConfig.caption}}</em></small>
+                    </div>
+                  {{/if}}
+                </td>
+              </tr>
+            {{/equal}}
+
+            {{#equal imgConfig.displaying "contain"}}
+              <tr>
+                <td>
+                  <span style="display: block;
+                    {{#if imgConfig.borderColor}}
+                      border: 1px solid {{ imgConfig.borderColor }};
+                      padding: 8px;
+                    {{/if}}
+                    ">
+                    {{#if imgConfig.link}}
+                      <a href=" {{imgConfig.link}}" style="display: block;">
+                    {{/if}}
+
+                    <img src="{{imgConfig.src}}" alt="{{imgConfig.src}}" style="width: 100%;" />
+
+                    {{#if imgConfig.link}}
+                      </a>
+                    {{/if}}
+                  </span>
+
+                  {{#if imgConfig.caption}}
+                    <div style="text-align: {{imgConfig.captionAlign}}; margin-top: 2px;">
+                      <small><em>{{imgConfig.caption}}</em></small>
+                    </div>
+                  {{/if}}
+                </td>
+              </tr>
+            {{/equal}}
+
+          </table>
+        {{/if}}
+
+        {{! No image }}
+        {{#unless imgConfig.src}}
+          <div style="border: 1px dashed #ddd; border-radius: 4px; text-align: center; padding: 42px 16px">
+            {{> img-placeholder }}
+          </div>
+        {{/unless}}
+      </td>
+    </tr>
+  </table>
+{{/equal}}
+
+{{#equal imgConfig.layout "right left"}}
+  <table style="table-layout: fixed;">
+    <tr>
+      <td width="50%">
+        {{#if imgConfig.src}}
+          <table style="height: 100%;">
+            {{#equal imgConfig.displaying "fill"}}
+              <tr style="height: 100%;">
+                <td style="
+                  {{#if imgConfig.borderColor}}
+                    border: 1px solid {{ imgConfig.borderColor }};
+                    padding: 8px;
+                  {{/if}}
+                ">
+                  <table style="height: 100%;">
+                    <tr>
+                      <td style="background-image: url('{{imgConfig.src}}')">
+                        {{#if imgConfig.link}}
+                          <a href=" {{imgConfig.link}}" style="height: 100%; display: block;">&nbsp;</a>
+                        {{/if}}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  {{#if imgConfig.caption}}
+                    <div style="text-align: {{imgConfig.captionAlign}}; margin-top: 2px;">
+                      <small><em>{{imgConfig.caption}}</em></small>
+                    </div>
+                  {{/if}}
+                </td>
+              </tr>
+            {{/equal}}
+
+            {{#equal imgConfig.displaying "contain"}}
+              <tr>
+                <td>
+                  <span style="display: block;
+                    {{#if imgConfig.borderColor}}
+                      border: 1px solid {{ imgConfig.borderColor }};
+                      padding: 8px;
+                    {{/if}}
+                    ">
+                    {{#if imgConfig.link}}
+                      <a href=" {{imgConfig.link}}" style="display: block;">
+                    {{/if}}
+
+                    <img src="{{imgConfig.src}}" alt="{{imgConfig.src}}" style="width: 100%;" />
+
+                    {{#if imgConfig.link}}
+                      </a>
+                    {{/if}}
+                  </span>
+
+                  {{#if imgConfig.caption}}
+                    <div style="text-align: {{imgConfig.captionAlign}}; margin-top: 2px;">
+                      <small><em>{{imgConfig.caption}}</em></small>
+                    </div>
+                  {{/if}}
+                </td>
+              </tr>
+            {{/equal}}
+
+          </table>
+        {{/if}}
+
+        {{! No image }}
+        {{#unless imgConfig.src}}
+          <div style="border: 1px dashed #ddd; border-radius: 4px; text-align: center; padding: 42px 16px">
+            {{> img-placeholder }}
+          </div>
+        {{/unless}}
+      </td>
+
+      <td width="50%" style="
+        {{#if textStyle.backgroundImage}}
+          background-image: url('{{textStyle.backgroundImage}}');
+          background-size: cover;
+          background-repeat: no-repeat;
+        {{/if}}
+      ">
+        {{> paragraph text=text}}
+      </td>
+    </tr>
+  </table>
+{{/equal}}

@@ -1,0 +1,14 @@
+{
+  "text": "",
+  "textPlaceholder": "Enter footer here...",
+  "backgroundColor": "",
+  "textStyle": {
+    "align": "center",
+    "color": "#333333",
+    "fontSize": "12px",
+    "weight": "normal",
+    "padding": "8px 16px",
+    "backgroundImage": ""
+  },
+  "defaultImages": []
+}

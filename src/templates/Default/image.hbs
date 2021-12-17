@@ -1,0 +1,54 @@
+{{#if imgConfig.src}}
+  <div>
+    <div style="text-align: center;">
+      {{#if imgConfig.borderColor}}
+        <span style="
+          display: inline-block;
+          border: 1px solid {{ imgConfig.borderColor }};
+          padding: 8px;
+          {{#equal imgConfig.displaying "fill"}}
+            {{#if imgConfig.borderColor}}
+              display: block;
+            {{/if}}
+          {{/equal}}
+        ">
+      {{/if}}
+
+      {{#if imgConfig.link}}
+        <a href=" {{imgConfig.link}}" style="height: 100%; display: block;">
+      {{/if}}
+
+      {{! this showing how the image would be rendered}}
+      {{#equal imgConfig.displaying "fill"}}
+        <span style="display: block; height: {{ imgConfig.height }}px; background-image: url('{{imgConfig.src}}')"></span>
+      {{/equal}}
+
+      {{#equal imgConfig.displaying "contain"}}
+        <span style="display: block; height: {{ imgConfig.height }}px;">
+          <img src="{{imgConfig.src}}" alt="{{imgConfig.src}}" />
+        </span>
+      {{/equal}}
+
+      {{#if imgConfig.link}}
+        </a>
+      {{/if}}
+
+      {{#if imgConfig.borderColor}}
+        </span>
+      {{/if}}
+    </div>
+
+    {{#if imgConfig.caption}}
+      <div style="text-align: {{imgConfig.captionAlign}}; margin-top: 2px;">
+        <small><em>{{imgConfig.caption}}</em></small>
+      </div>
+    {{/if}}
+  </div>
+{{/if}}
+
+{{! No image }}
+{{#unless imgConfig.src}}
+  <div style="border: 1px dashed #ddd; border-radius: 4px; text-align: center; padding: 42px 16px">
+    {{> img-placeholder }}
+  </div>
+{{/unless}}

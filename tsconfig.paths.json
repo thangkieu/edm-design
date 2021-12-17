@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@uikits": ["components/UIKits.tsx"],
+      "@components/*": ["components/*"],
+      "@icons": ["components/Icons.tsx"],
+      "@recoil-atoms/*": ["recoil-atoms/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"],
+      "lodash": ["../node_modules/lodash-es"]
+    }
+  }
+}

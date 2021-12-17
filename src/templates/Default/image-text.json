@@ -1,0 +1,22 @@
+{
+  "textPlaceholder": "Enter your text here...",
+  "backgroundColor": "",
+  "textStyle": {
+    "align": "left",
+    "color": "#333333",
+    "fontSize": "14px",
+    "weight": "normal",
+    "padding": "16px",
+    "backgroundImage": ""
+  },
+  "defaultImages": [],
+  "imgConfig": {
+    "link": "",
+    "src": "",
+    "layout": "left right",
+    "captionAlign": "left",
+    "caption": "",
+    "borderColor": "",
+    "displaying": "contain"
+  }
+}

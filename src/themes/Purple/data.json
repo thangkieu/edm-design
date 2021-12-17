@@ -1,0 +1,144 @@
+{
+  "id": "21ab07c5-0be6-4987-a92b-ee114730d2e6",
+  "name": "Purple",
+  "thumbnail": "/themes/Purple/images/main_thumb.png",
+  "modules": [
+    {
+      "template": "{{#if textStyle.backgroundImage}}\n  <div style=\"\n    background-image: url('{{textStyle.backgroundImage}}');\n    background-size: cover;\n    background-repeat: no-repeat;\n  \">\n{{/if}}\n\n{{> paragraph text=text tagName=\"div\"}}\n\n{{#if textStyle.backgroundImage}}\n  </div>\n{{/if}}",
+      "type": "footer",
+      "id": "9ac9ea3c-deb8-43be-862b-6c9b610afa4d",
+      "config": {
+        "text": "",
+        "textPlaceholder": "Enter footer here...",
+        "backgroundColor": "#935aec",
+        "textStyle": {
+          "align": "center",
+          "color": "#ffffff",
+          "fontSize": "12px",
+          "weight": "normal",
+          "padding": "8px 16px",
+          "backgroundImage": "/themes/Purple/images/footer/1.png"
+        },
+        "defaultImages": [
+          {
+            "id": "631db539-3876-47c8-be6d-46874f6bae3a",
+            "thumbnail": "/themes/Purple/images/footer/thumb_1.png",
+            "image": "/themes/Purple/images/footer/1.png"
+          }
+        ]
+      }
+    },
+    {
+      "template": "{{#if textStyle.backgroundImage}}\n  <div style=\"\n    background-image: url('{{textStyle.backgroundImage}}');\n    background-size: cover;\n    background-repeat: no-repeat;\n  \">\n{{/if}}\n\n{{> paragraph text=text tagName=\"div\"}}\n\n{{#if textStyle.backgroundImage}}\n  </div>\n{{/if}}",
+      "type": "header",
+      "id": "730117cd-57ef-458d-be7b-a0d65ed0cf7e",
+      "config": {
+        "text": "",
+        "textPlaceholder": "Enter header here...",
+        "backgroundColor": "#935aec",
+        "textStyle": {
+          "align": "center",
+          "color": "#ffffff",
+          "fontSize": "32px",
+          "weight": "bold",
+          "padding": "16px",
+          "backgroundImage": "/themes/Purple/images/header/1.png"
+        },
+        "defaultImages": [
+          {
+            "id": "c7f15bdd-c7e1-4b15-bb41-45fd2e65028c",
+            "thumbnail": "/themes/Purple/images/header/thumb_1.png",
+            "image": "/themes/Purple/images/header/1.png"
+          }
+        ],
+        "uploadedImages": []
+      }
+    },
+    {
+      "template": "{{#equal imgConfig.layout \"left right\"}}\n  <table style=\"table-layout: fixed;\">\n    <tr>\n      <td width=\"50%\" style=\"\n      {{#if textStyle.backgroundImage}}\n        background-image: url('{{textStyle.backgroundImage}}');\n        background-size: cover;\n        background-repeat: no-repeat;\n      {{/if}}\n      \">\n        {{> paragraph text=text}}\n      </td>\n\n      <td width=\"50%\">\n        {{#if imgConfig.src}}\n          <table style=\"height: 100%;\">\n            {{#equal imgConfig.displaying \"fill\"}}\n              <tr style=\"height: 100%;\">\n                <td style=\"\n                  {{#if imgConfig.borderColor}}\n                    border: 1px solid {{ imgConfig.borderColor }};\n                    padding: 8px;\n                  {{/if}}\n                \">\n                  <table style=\"height: 100%;\">\n                    <tr>\n                      <td style=\"background-image: url('{{imgConfig.src}}')\">\n                        {{#if imgConfig.link}}\n                          <a href=\" {{imgConfig.link}}\" style=\"height: 100%; display: block;\">&nbsp;</a>\n                        {{/if}}\n                      </td>\n                    </tr>\n                  </table>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  {{#if imgConfig.caption}}\n                    <div style=\"text-align: {{imgConfig.captionAlign}}; margin-top: 2px;\">\n                      <small><em>{{imgConfig.caption}}</em></small>\n                    </div>\n                  {{/if}}\n                </td>\n              </tr>\n            {{/equal}}\n\n            {{#equal imgConfig.displaying \"contain\"}}\n              <tr>\n                <td>\n                  <span style=\"display: block;\n                    {{#if imgConfig.borderColor}}\n                      border: 1px solid {{ imgConfig.borderColor }};\n                      padding: 8px;\n                    {{/if}}\n                    \">\n                    {{#if imgConfig.link}}\n                      <a href=\" {{imgConfig.link}}\" style=\"display: block;\">\n                    {{/if}}\n\n                    <img src=\"{{imgConfig.src}}\" alt=\"{{imgConfig.src}}\" />\n\n                    {{#if imgConfig.link}}\n                      </a>\n                    {{/if}}\n                  </span>\n\n                  {{#if imgConfig.caption}}\n                    <div style=\"text-align: {{imgConfig.captionAlign}}; margin-top: 2px;\">\n                      <small><em>{{imgConfig.caption}}</em></small>\n                    </div>\n                  {{/if}}\n                </td>\n              </tr>\n            {{/equal}}\n\n          </table>\n        {{/if}}\n\n        {{! No image }}\n        {{#unless imgConfig.src}}\n          <div style=\"border: 1px dashed #ddd; border-radius: 4px; text-align: center; padding: 42px 16px\">\n            {{> img-placeholder }}\n          </div>\n        {{/unless}}\n      </td>\n    </tr>\n  </table>\n{{/equal}}\n\n{{#equal imgConfig.layout \"right left\"}}\n  <table style=\"table-layout: fixed;\">\n    <tr>\n      <td width=\"50%\">\n        {{#if imgConfig.src}}\n          <table style=\"height: 100%;\">\n            {{#equal imgConfig.displaying \"fill\"}}\n              <tr style=\"height: 100%;\">\n                <td style=\"\n                  {{#if imgConfig.borderColor}}\n                    border: 1px solid {{ imgConfig.borderColor }};\n                    padding: 8px;\n                  {{/if}}\n                \">\n                  <table style=\"height: 100%;\">\n                    <tr>\n                      <td style=\"background-image: url('{{imgConfig.src}}')\">\n                        {{#if imgConfig.link}}\n                          <a href=\" {{imgConfig.link}}\" style=\"height: 100%; display: block;\">&nbsp;</a>\n                        {{/if}}\n                      </td>\n                    </tr>\n                  </table>\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  {{#if imgConfig.caption}}\n                    <div style=\"text-align: {{imgConfig.captionAlign}}; margin-top: 2px;\">\n                      <small><em>{{imgConfig.caption}}</em></small>\n                    </div>\n                  {{/if}}\n                </td>\n              </tr>\n            {{/equal}}\n\n            {{#equal imgConfig.displaying \"contain\"}}\n              <tr>\n                <td>\n                  <span style=\"display: block;\n                    {{#if imgConfig.borderColor}}\n                      border: 1px solid {{ imgConfig.borderColor }};\n                      padding: 8px;\n                    {{/if}}\n                    \">\n                    {{#if imgConfig.link}}\n                      <a href=\" {{imgConfig.link}}\" style=\"display: block;\">\n                    {{/if}}\n\n                    <img src=\"{{imgConfig.src}}\" alt=\"{{imgConfig.src}}\" />\n\n                    {{#if imgConfig.link}}\n                      </a>\n                    {{/if}}\n                  </span>\n\n                  {{#if imgConfig.caption}}\n                    <div style=\"text-align: {{imgConfig.captionAlign}}; margin-top: 2px;\">\n                      <small><em>{{imgConfig.caption}}</em></small>\n                    </div>\n                  {{/if}}\n                </td>\n              </tr>\n            {{/equal}}\n\n          </table>\n        {{/if}}\n\n        {{! No image }}\n        {{#unless imgConfig.src}}\n          <div style=\"border: 1px dashed #ddd; border-radius: 4px; text-align: center; padding: 42px 16px\">\n            {{> img-placeholder }}\n          </div>\n        {{/unless}}\n      </td>\n\n      <td width=\"50%\" style=\"\n        {{#if textStyle.backgroundImage}}\n          background-image: url('{{textStyle.backgroundImage}}');\n          background-size: cover;\n          background-repeat: no-repeat;\n        {{/if}}\n      \">\n        {{> paragraph text=text}}\n      </td>\n    </tr>\n  </table>\n{{/equal}}",
+      "type": "image-text",
+      "id": "1542f4fa-a1e4-4328-95ca-66d03dc34035",
+      "config": {
+        "textPlaceholder": "Enter your text here...",
+        "backgroundColor": "#dac6ff",
+        "textStyle": {
+          "align": "left",
+          "color": "#333333",
+          "fontSize": "14px",
+          "weight": "normal",
+          "padding": "16px",
+          "backgroundImage": "/themes/Purple/images/text/1.png"
+        },
+        "defaultImages": [
+          {
+            "id": "61992673-6477-4211-88fe-87f99af5cab1",
+            "thumbnail": "/themes/Purple/images/text/thumb_1.png",
+            "image": "/themes/Purple/images/text/1.png"
+          }
+        ],
+        "imgConfig": {
+          "link": "",
+          "src": "",
+          "layout": "left right",
+          "captionAlign": "left",
+          "caption": "",
+          "borderColor": "",
+          "displaying": "contain"
+        }
+      }
+    },
+    {
+      "template": "{{#if imgConfig.src}}\n  <div>\n    <div style=\"text-align: center;\">\n      {{#if imgConfig.borderColor}}\n        <span style=\"\n          display: inline-block;\n          border: 1px solid {{ imgConfig.borderColor }};\n          padding: 8px;\n          {{#equal imgConfig.displaying \"fill\"}}\n            {{#if imgConfig.borderColor}}\n              display: block;\n            {{/if}}\n          {{/equal}}\n        \">\n      {{/if}}\n\n      {{#if imgConfig.link}}\n        <a href=\" {{imgConfig.link}}\" style=\"height: 100%; display: block;\">\n      {{/if}}\n\n      {{! this showing how the image would be rendered}}\n      {{#equal imgConfig.displaying \"fill\"}}\n        <span style=\"display: block; height: {{ imgConfig.height }}px; background-image: url('{{imgConfig.src}}')\"></span>\n      {{/equal}}\n\n      {{#equal imgConfig.displaying \"contain\"}}\n        <span style=\"display: block; height: {{ imgConfig.height }}px;\">\n          <img src=\"{{imgConfig.src}}\" alt=\"{{imgConfig.src}}\" />\n        </span>\n      {{/equal}}\n\n      {{#if imgConfig.link}}\n        </a>\n      {{/if}}\n\n      {{#if imgConfig.borderColor}}\n        </span>\n      {{/if}}\n    </div>\n\n    {{#if imgConfig.caption}}\n      <div style=\"text-align: {{imgConfig.captionAlign}}; margin-top: 2px;\">\n        <small><em>{{imgConfig.caption}}</em></small>\n      </div>\n    {{/if}}\n  </div>\n{{/if}}\n\n{{! No image }}\n{{#unless imgConfig.src}}\n  <div style=\"border: 1px dashed #ddd; border-radius: 4px; text-align: center; padding: 42px 16px\">\n    {{> img-placeholder }}\n  </div>\n{{/unless}}",
+      "type": "image",
+      "id": "5799a725-54d8-4fd1-a090-9b4bd19a95a3",
+      "config": {
+        "imgConfig": {
+          "link": "",
+          "src": "",
+          "height": "",
+          "maxHeight": 0,
+          "captionAlign": "left",
+          "caption": "",
+          "borderColor": "",
+          "displaying": "contain"
+        },
+        "defaultImages": []
+      }
+    },
+    {
+      "template": "<div style=\"height: {{height}}px; {{#if backgroundColor}}background-color: {{backgroundColor}}{{/if}}\"></div>",
+      "type": "spacer",
+      "id": "811df15e-0b4c-46b0-b37b-49ac071d0f7b",
+      "config": {
+        "height": 16,
+        "backgroundColor": "",
+        "defaultImages": []
+      }
+    },
+    {
+      "template": "{{#if textStyle.backgroundImage}}\n  <div style=\"\n    background-image: url('{{textStyle.backgroundImage}}');\n    background-size: cover;\n    background-repeat: no-repeat;\n  \">\n{{/if}}\n\n{{> paragraph text=text tagName=\"div\"}}\n\n{{#if textStyle.backgroundImage}}\n  </div>\n{{/if}}",
+      "type": "text",
+      "id": "512c9087-734f-45cf-a99c-9757b0a64af0",
+      "config": {
+        "textPlaceholder": "Enter your text here...",
+        "backgroundColor": "#dac6ff",
+        "textStyle": {
+          "align": "center",
+          "color": "#333333",
+          "fontSize": "14px",
+          "weight": "normal",
+          "padding": "16px",
+          "backgroundImage": "/themes/Purple/images/text/1.png"
+        },
+        "textMaxLength": 150,
+        "defaultImages": [
+          {
+            "id": "14cd95b3-9d14-43da-a53a-3b9dcc6215f9",
+            "thumbnail": "/themes/Purple/images/text/thumb_1.png",
+            "image": "/themes/Purple/images/text/1.png"
+          }
+        ]
+      }
+    }
+  ]
+}

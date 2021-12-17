@@ -1,0 +1,13 @@
+{{#if textStyle.backgroundImage}}
+  <div style="
+    background-image: url('{{textStyle.backgroundImage}}');
+    background-size: cover;
+    background-repeat: no-repeat;
+  ">
+{{/if}}
+
+{{> paragraph text=text tagName="div"}}
+
+{{#if textStyle.backgroundImage}}
+  </div>
+{{/if}}

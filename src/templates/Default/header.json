@@ -1,0 +1,15 @@
+{
+  "text": "",
+  "textPlaceholder": "Enter header here...",
+  "backgroundColor": "",
+  "textStyle": {
+    "align": "center",
+    "color": "#333333",
+    "fontSize": "32px",
+    "weight": "bold",
+    "padding": "16px",
+    "backgroundImage": ""
+  },
+  "defaultImages": [],
+  "uploadedImages": []
+}

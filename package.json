@@ -2,6 +2,7 @@
   "name": "edm-design",
   "version": "0.0.1",
   "private": true,
+  "homepage": "/edm-design",
   "dependencies": {
     "@ant-design/icons": "^4.6.4",
     "@loadable/component": "^5.15.0",
@@ -27,6 +28,7 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
+    "build-docs": "cross-env BUILD_PATH=docs craco build",
     "test": "craco test",
     "eject": "react-scripts eject",
     "serve": "node server.js",

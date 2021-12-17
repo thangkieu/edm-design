@@ -9,8 +9,8 @@ export const routes: RouteConfig[] = [
   {
     path: '/',
     exact: true,
-    auth: true,
-    component: loadable(() => import('../pages/HomePage')),
+    // auth: true,
+    component: loadable(() => import('../pages/EDMComposer')),
   },
   {
     path: '/edm-composer',

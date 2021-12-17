@@ -1,0 +1,32 @@
+[
+  {
+    "id": "ff359f68-ade4-45d1-aa8e-aba399363731",
+    "name": "Blue",
+    "thumbnail": "/themes/Blue/images/main_thumb.png"
+  },
+  {
+    "id": "8f779a26-4559-4af1-b302-e574dc3552aa",
+    "name": "Default",
+    "thumbnail": "/themes/Default/images/main_thumb.png"
+  },
+  {
+    "id": "56083dcb-142e-4812-b991-546b36b5bf08",
+    "name": "Green",
+    "thumbnail": "/themes/Green/images/main_thumb.png"
+  },
+  {
+    "id": "21ab07c5-0be6-4987-a92b-ee114730d2e6",
+    "name": "Purple",
+    "thumbnail": "/themes/Purple/images/main_thumb.png"
+  },
+  {
+    "id": "db63d230-474b-4d43-8012-8e444db65386",
+    "name": "Red",
+    "thumbnail": "/themes/Red/images/main_thumb.png"
+  },
+  {
+    "id": "79412318-95fd-4ca4-aa00-4f05d22224c9",
+    "name": "Yellow",
+    "thumbnail": "/themes/Yellow/images/main_thumb.png"
+  }
+]

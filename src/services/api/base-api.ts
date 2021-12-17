@@ -73,7 +73,7 @@ export async function request(url: string, options?: RequestInit) {
 
 export async function clientRequest(url: string, options?: RequestInit) {
   try {
-    return await doRequest('', url, options);
+    return await doRequest(process.env.REACT_APP_BASE_URL || '', url, options);
   } catch (err: any) {
     return Promise.reject(err);
   }

@@ -162,7 +162,8 @@ type FileRespItem = {
 };
 
 type SendEmailBody = {
-  html_file_key: string;
+  html_file_key?: string;
+  message?: string;
   subject: string;
   receivers: string[];
   sender: string;

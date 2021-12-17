@@ -21,16 +21,17 @@ app.post('/api/send-email', async function (req, res) {
     domain: DOMAIN,
   });
   const data = {
-    from: 'Boizz <test@example.com>',
-    to: 'guys.ilove19@gmail.com',
+    from: 'No-Reply <no-reply@example.com>',
+    to: req.body.receivers[0],
     subject: req.body.subject,
-    html: req.body.emailTemplate,
+    html: req.body.message,
   };
+
   mg.messages().send(data, function (error, body) {
     console.log(body);
   });
 
-  res.send('ok');
+  res.send({ messages: 'Send email success.' });
 });
 
 app.get('*', (req, res) => {

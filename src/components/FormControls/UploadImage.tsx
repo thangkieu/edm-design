@@ -1,9 +1,15 @@
-import { CloudUploadOutlined } from '@icons';
-import { getToken } from '@services/api/base-api';
-import { Upload, UploadChangeParam, UploadFile, UploadFileStatus } from '@uikits';
-import { loadFile, preventUpload } from '@utils/helpers';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import styled, { css } from 'styled-components';
+
+import { CloudUploadOutlined } from '@icons';
+import { getToken } from '@services/api/base-api';
+import {
+  Upload,
+  UploadChangeParam,
+  UploadFile,
+  UploadFileStatus
+} from '@uikits';
+import { loadFile, preventUpload } from '@utils/helpers';
 
 interface UploadImageProps {
   name?: string;
@@ -11,6 +17,7 @@ interface UploadImageProps {
   value?: string;
   className?: string;
   buttonRender?: React.ReactNode;
+  disabled?: boolean;
   onChange?(imageUrl?: string | null): void;
 }
 
@@ -45,7 +52,7 @@ const Wrapper = styled.div<{ isHide?: boolean }>`
 `;
 
 export const UploadImage = memo<UploadImageProps>(
-  ({ value, onChange, buttonRender, className, defaultValue }) => {
+  ({ value, onChange, buttonRender, className, defaultValue, disabled }) => {
     const defaultFileList = useMemo(() => {
       if (!defaultValue) return [];
 
@@ -117,6 +124,7 @@ export const UploadImage = memo<UploadImageProps>(
           maxCount={1}
           showUploadList={{ showRemoveIcon: true, showPreviewIcon: false }}
           beforeUpload={preventUpload}
+          disabled={disabled}
         >
           {buttonRender || (
             <>

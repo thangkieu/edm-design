@@ -1,24 +1,23 @@
+import { FormInstance } from 'antd/es/form';
+import { memo, useCallback, useRef, useState } from 'react';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import styled from 'styled-components';
+
 import { theme } from '@app/theme';
 import { getHTML } from '@components/ExportEdmDesign';
 import { MultipleInput } from '@components/FormControls/MultipleInput';
 import { CheckCircleTwoTone, MailOutlined } from '@icons';
-import { designConfigState, htmlKeyState } from '@recoil-atoms/atoms';
+import { designConfigState } from '@recoil-atoms/atoms';
 import {
-  designConfigModifiedSelector,
   designModulesConfigInOrderSelector,
-  saveDesignSelector,
+  saveDesignSelector
 } from '@recoil-atoms/selectors';
 import { userInfoState } from '@recoil-atoms/user-info';
 import { apiHelpers } from '@services/api';
-import { uploadFile } from '@services/files';
 import { saveCurentDesign } from '@services/themes';
 import { Button, Form, FormItem, Input, Modal, Typography } from '@uikits';
 import { validateBy } from '@utils/helpers';
 import { notify } from '@utils/notification';
-import { FormInstance } from 'antd/es/form';
-import { memo, useCallback, useRef, useState } from 'react';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-import styled from 'styled-components';
 
 interface SendEmailProps {
   data?: Partial<SendEmailForm>;
@@ -32,8 +31,6 @@ const Box = styled.div`
 export const SendEmail = memo<SendEmailProps>((props) => {
   const currentModuleList = useRecoilValue(designModulesConfigInOrderSelector);
   const designConfig = useRecoilValue(designConfigState);
-  const isModified = useRecoilValue(designConfigModifiedSelector);
-  const [htmlKey, setHtmlKey] = useRecoilState(htmlKeyState);
   const userInfo = useRecoilValue(userInfoState);
   const saveDesign = useSetRecoilState(saveDesignSelector);
 
@@ -46,22 +43,13 @@ export const SendEmail = memo<SendEmailProps>((props) => {
   const sendEmail = useCallback(
     async (message: string, values: SendEmailForm) => {
       toggleSendingEmail(true);
-      let key = htmlKey;
 
-      if (isModified || !key) {
-        const blob = new Blob([message], { type: 'text/html' });
-        const resp = await uploadFile('campaigns', blob);
-
-        setHtmlKey(resp.key);
-        key = resp.key;
-      }
-
-      await saveCurentDesign(saveDesign, { htmlFileKey: key });
+      await saveCurentDesign(saveDesign);
 
       try {
-        await apiHelpers.post('/email_edm_from_s3', {
+        await apiHelpers.post('/api/send-email', {
           body: JSON.stringify({
-            html_file_key: key,
+            message: message,
             subject: values.subject,
             receivers: values.emails,
             sender: userInfo?.email,
@@ -76,7 +64,7 @@ export const SendEmail = memo<SendEmailProps>((props) => {
 
       toggleSendingEmail(false);
     },
-    [htmlKey, isModified, setHtmlKey, userInfo?.email, saveDesign]
+    [userInfo?.email, saveDesign]
   );
 
   const handleSendEmail = useCallback(
@@ -128,7 +116,7 @@ export const SendEmail = memo<SendEmailProps>((props) => {
         okButtonProps={{
           type: 'primary',
           loading: isSendingEmail,
-          disabled: isSendingEmail,
+          disabled: true,
           style: {
             display: isSent ? 'none' : 'inline-block',
           },
@@ -182,6 +170,10 @@ export const SendEmail = memo<SendEmailProps>((props) => {
             >
               <MultipleInput />
             </FormItem>
+
+            <Typography.Text type="secondary">
+              Need an email server to trigger send email
+            </Typography.Text>
           </Form>
         )}
       </Modal>

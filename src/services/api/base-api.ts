@@ -55,7 +55,11 @@ const doRequest = async (baseAPI: string, url: string, options?: RequestInit) =>
   }
 
   // Success
-  return await resp.json();
+  try {
+    return await resp.clone().json();
+  } catch {
+    return resp.text();
+  }
 };
 
 const BASE_API = process.env?.REACT_APP_BASE_API || '';

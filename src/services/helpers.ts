@@ -9,5 +9,5 @@ export function getS3ImageUrl(path?: string) {
 
   if (path.includes('/download_file')) return path;
 
-  return `${process.env?.REACT_APP_BASE_API}/pidove${getFileUrl(path)}`;
+  return `${process.env?.REACT_APP_BASE_API}/${getFileUrl(path)}`;
 }

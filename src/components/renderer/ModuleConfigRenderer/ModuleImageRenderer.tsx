@@ -1,3 +1,7 @@
+import { FormInstance } from 'antd/es/form/Form';
+import { debounce, merge } from 'lodash';
+import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
+
 import { ModuleTypeEnum } from '@app/enums';
 import {
   AlignCenterOutlined,
@@ -6,7 +10,7 @@ import {
   CaptionImageIcon,
   IconBase,
   ImageCaptionIcon,
-  PictureOutlined,
+  PictureOutlined
 } from '@icons';
 import {
   ColorPicker,
@@ -15,12 +19,11 @@ import {
   IconSelection,
   Input,
   InputNumber,
-  UploadImage,
+  UploadImage
 } from '@uikits';
-import { FormInstance } from 'antd/es/form/Form';
-import { debounce, merge } from 'lodash';
-import { memo, useCallback, useEffect, useMemo, useRef } from 'react';
+
 import { ModuleTextFields } from './ModuleTextRenderer';
+
 interface ModuleImageRendererProps {
   config: ModuleImage | ModuleImageText;
   id: string;

@@ -1,5 +1,7 @@
-import { caching } from '@services/caching';
 import objectHash from 'object-hash';
+
+import { caching } from '@services/caching';
+
 import { clientRequest, request } from './base-api';
 
 export { request };
@@ -46,10 +48,10 @@ async function postRequest(url: string, options?: RequestInit) {
 
 export const apiHelpers = {
   get: async (url: string, options?: RequestInit) => {
-    return getRequest(`/pidove${url}`, options);
+    return getRequest(`${url}`, options);
   },
   post: async (url: string, options?: RequestInit) => {
-    return postRequest(`/pidove${url}`, options);
+    return postRequest(`${url}`, options);
   },
   authGet: async (url: string, options?: RequestInit) => {
     return getRequest(`/auth${url}`, options);

@@ -13,7 +13,7 @@ export const routes: RouteConfig[] = [
     component: loadable(() => import('../pages/EDMComposer')),
   },
   {
-    path: '/edm-composer',
+    path: '/edm-design',
     exact: true,
     // auth: true,
     component: loadable(() => import('../pages/EDMComposer')),
